@@ -421,6 +421,15 @@ img {
   border: 0;
 }
 
+@keyframes asciiFlow {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 300% center;
+  }
+}
+
 .ascii {
   line-height: 15px;
   display: flex;
@@ -429,6 +438,21 @@ img {
   font-family: "JetBrains Mono";
   font-size: 13px;
   user-select: none;
+  background: linear-gradient(
+    90deg,
+    #994466,  /* dark magenta */
+    #7766aa,  /* deep lavender */
+    #336688,  /* steel blue */
+    #3a506b,  /* muted slate */
+    #4433aa,  /* dark indigo */
+    #994466   /* back to magenta */
+  );
+  background-size: 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: asciiFlow 5s linear infinite;
 
   @include mobile {
     display: none;
