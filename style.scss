@@ -140,9 +140,9 @@ div ol {
 }
 
 div ol:first-of-type {
-  border: 1px solid #efefef;
+  border: 1px solid #e3e6e8;
   font-size: 15px;
-  background: #efefef;
+  background: #e3e6e8;
 }
 
 ol li::marker {
@@ -586,7 +586,7 @@ table {
   width: max-content;
   max-width: 100%;
   overflow: auto;
-  border: 1px solid #efefef;
+  border: 1px solid #e3e6e8;
 }
 
 table tr {
