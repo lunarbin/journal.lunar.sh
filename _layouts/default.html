@@ -132,18 +132,27 @@ html {
 </div>
 
 <script>
-window.addEventListener('DOMContentLoaded', () => {
-  const banner = document.getElementById('cookieBanner');
-
-  if (localStorage.getItem('cookieBannerDismissed') !== 'true') {
-    banner.style.display = 'block';
+  function setCookie(name, value, days) {
+    const expires = new Date(Date.now() + days * 864e5).toUTCString();
+    document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/`;
   }
 
-  document.getElementById('closeCookieBanner').addEventListener('click', () => {
-    localStorage.setItem('cookieBannerDismissed', 'true');
-    banner.remove();
+  function getCookie(name) {
+    return document.cookie.split('; ').find(row => row.startsWith(name + '='))?.split('=')[1];
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const banner = document.getElementById('cookieBanner');
+
+    if (!getCookie('cookieBannerDismissed')) {
+      banner.style.display = 'block';
+    }
+
+    document.getElementById('closeCookieBanner').addEventListener('click', () => {
+      setCookie('cookieBannerDismissed', 'true', 1); // expires in 1 day
+      banner.remove();
+    });
   });
-});
 </script>
 </body>
 </html>
