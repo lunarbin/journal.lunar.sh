@@ -776,7 +776,7 @@ code table tr {
 
   @include mobile {
     .cookies-banner {
-      display: none;
+      display: none !important;
     }
   }
 
