@@ -773,7 +773,7 @@ code table tr {
     right: 10px;
   }
 
-  @include mobile { {
+  @include mobile {
     .cookies-banner {
       display: none;
     }
